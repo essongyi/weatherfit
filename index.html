@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 검색 엔진 최적화(SEO)를 위한 메타 태그 -->
+    <meta name="description" content="현재 기온에 맞는 가장 적절한 옷차림을 추천해주는 WeatherFit 서비스입니다.">
+    <title>WeatherFit - 기온별 옷차림 추천</title>
+    
+    <!-- 스타일시트 연결 -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- 깔끔하고 현대적인 폰트 (Pretendard) 적용 -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 상단 로고 및 설명 영역 -->
+        <header>
+            <h1 class="logo">WeatherFit</h1>
+            <p class="subtitle">현재 기온에 맞는 옷차림을 추천해 드립니다.</p>
+        </header>
+
+        <main>
+            <!-- 기온 입력 및 추천 버튼 영역 -->
+            <section class="input-section card">
+                <div class="input-group">
+                    <input type="number" id="temp-input" placeholder="기온을 입력하세요" aria-label="기온 입력창" />
+                    <span class="unit">℃</span>
+                </div>
+                <button id="recommend-btn">추천받기</button>
+            </section>
+
+            <!-- 추천 결과 출력 영역 (초기에는 숨김 처리) -->
+            <section id="result-section" class="hidden">
+                <!-- 옷차림 추천 결과 카드 -->
+                <div class="result-card card fade-in">
+                    <h2>👕 추천 옷차림</h2>
+                    <p id="outfit-result">여기에 옷차림 결과가 표시됩니다.</p>
+                </div>
+
+                <!-- 팁 추천 결과 카드 -->
+                <div class="tip-card card fade-in delay">
+                    <h2>💡 오늘의 Tip</h2>
+                    <p id="tip-result">여기에 팁이 표시됩니다.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 자바스크립트 연결 -->
+    <script src="script.js"></script>
+</body>
+</html>

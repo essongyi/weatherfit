@@ -1,0 +1,190 @@
+/* 전체 요소 기본 스타일 초기화 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* 모던하고 깔끔한 폰트 스택 */
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    
+    /* 하늘색 계열의 그라데이션 배경 */
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* 중앙 정렬을 위한 메인 컨테이너 */
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* 헤더(로고) 영역 */
+header {
+    text-align: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #fff;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* 재사용 가능한 카드 스타일 (글래스모피즘 느낌 적용) */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* 입력 섹션 래퍼 */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 기온 입력 인풋 그룹 */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f5f7fa;
+    border-radius: 12px;
+    padding: 5px 20px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* 인풋 포커스 시 테두리 색상 변경 */
+.input-group:focus-within {
+    border-color: #a1c4fd;
+    background: #fff;
+}
+
+/* 숫자 입력 필드 초기화 */
+#temp-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    padding: 15px 0;
+    outline: none;
+    color: #333;
+}
+
+#temp-input::placeholder {
+    color: #aaa;
+}
+
+/* 섭씨 기호 */
+.unit {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #666;
+}
+
+/* 추천받기 버튼 스타일 */
+#recommend-btn {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+/* 버튼 Hover 시 입체감 및 색상 변화 */
+#recommend-btn:hover {
+    background: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+}
+
+/* 버튼 클릭 시 눌리는 효과 */
+#recommend-btn:active {
+    transform: translateY(0);
+}
+
+/* 결과 출력 영역 (기본적으로는 공간도 차지하지 않게 숨김) */
+#result-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 카드 내부 제목(h2) 스타일 */
+.result-card h2, .tip-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #4a90e2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 카드 내부 텍스트 폰트 설정 */
+.result-card p, .tip-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    word-break: keep-all; /* 단어 단위로 줄바꿈되어 깔끔하게 보임 */
+}
+
+/* 위로 부드럽게 올라오면서 나타나는 애니메이션 정의 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 애니메이션 적용 클래스 */
+.fade-in {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0; /* 애니메이션 시작 전에는 투명하게 유지 */
+}
+
+/* Tip 카드는 조금 더 늦게 나타나도록 딜레이 적용 */
+.delay {
+    animation-delay: 0.2s;
+}
+
+/* 모바일 디바이스 반응형 설정 */
+@media (max-width: 480px) {
+    .card {
+        padding: 20px;
+    }
+    .logo {
+        font-size: 2rem;
+    }
+}
